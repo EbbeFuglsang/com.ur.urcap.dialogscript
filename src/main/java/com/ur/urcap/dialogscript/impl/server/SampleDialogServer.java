@@ -17,24 +17,12 @@ public class SampleDialogServer extends URInternalServer {
 
     }
 
-    /**
-     * サーバー側受け入れ後の処理
-     * 
-     * @param recieveString 受信したバッファ文字列
-     * @param reader        受信用ストリーム
-     * @param writer        送信用ストリーム
-     */
+
     @Override
     public void onAccept(String recieveString, BufferedReader reader, PrintWriter writer) {
     }
 
-    /**
-     * バッファ受信後の処理。オーバーライドで使用。
-     * 
-     * @param recieveString 受信したバッファ文字列
-     * @param reader        受信用ストリーム
-     * @param writer        送信用ストリーム
-     */
+
     @Override
     public void onRecieveStream(String recieveString, BufferedReader reader, PrintWriter writer) {
         String MESSAGE_HEADER = "Server " + String.valueOf(port) + ":";
@@ -79,9 +67,6 @@ public class SampleDialogServer extends URInternalServer {
 
     }
 
-    /**
-     * サーバ切断時の処理
-     */
     @Override
     public void onDisconnect() {
     }

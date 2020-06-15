@@ -26,10 +26,7 @@ public class ScriptDialogInstallationNodeContribution implements InstallationNod
 
 	private SampleDialogServer dialogServer;
 
-	/**
-	 * テキストボックスの定義
-	 * 
-	 */
+
 	@Input(id = "inputPort")
 	private InputTextField inputPort;
 
@@ -40,13 +37,7 @@ public class ScriptDialogInstallationNodeContribution implements InstallationNod
 		}
 	}
 
-	/**
-	 * 
-	 * イベント処理時のデータモデルを更新する処理
-	 * 
-	 * @param name  コンポーネント名
-	 * @param event イベントオブジェクト
-	 */
+
 	private void setModelonEvent(String name, InputEvent event) {
 		if (event.getComponent() instanceof InputTextField) {
 			InputTextField text = (InputTextField) event.getComponent();
@@ -59,21 +50,14 @@ public class ScriptDialogInstallationNodeContribution implements InstallationNod
 		}
 	}
 
-	/**
-	 * 設定内容の表示を更新する処理
-	 */
+
 	private void updateForm() {
 
 		inputPort.setText(model.get("inputPort", String.valueOf(DEFAULT_PORT)));
 
 	}
 
-	/**
-	 * 文字列が空かnullか調べる
-	 * 
-	 * @param string 文字列
-	 * @return 空かnullのいずれかでtrue。それ以外はfalse。
-	 */
+
 	public boolean isEmptyOfString(String string) {
 		if (string == null)
 			return true;
@@ -85,12 +69,7 @@ public class ScriptDialogInstallationNodeContribution implements InstallationNod
 
 	}
 
-	/**
-	 * スクリプトファイルの読み込み
-	 * 
-	 * @param filename ファイル名
-	 * @return 文字列の配列
-	 */
+
 	public String[] readScriptFile(String filename) {
 		try {
 
@@ -114,12 +93,6 @@ public class ScriptDialogInstallationNodeContribution implements InstallationNod
 
 	}
 
-	/**
-	 * コストラクタ
-	 * 
-	 * @param api   urcapAPI
-	 * @param model データモデル
-	 */
 	public ScriptDialogInstallationNodeContribution(URCapAPI api, DataModel model) {
 		this.api = api;
 		this.model = model;

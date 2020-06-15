@@ -69,9 +69,9 @@ public class SampleDialogFrame extends JFrame {
     }
 
     /**
-     * オーダー入力フォームを表示
+     * Open Dialog
      * 
-     * @return レスポンス
+     * @return
      */
     public int showDialog() {
         this.setVisible(true);
@@ -153,11 +153,8 @@ public class SampleDialogFrame extends JFrame {
 
     }
 
-    /**
-     * イベントハンドラを定義
-     */
+
     private void setEventHandlers() {
-        // ソフトウェアキーボードを使えるようにする。
         keyboardfactory = contribution.api.getInstallationAPIProvider().getUserInterfaceAPI().getUserInteraction()
                 .getKeyboardInputFactory();
         numberkeyboard = keyboardfactory.createIntegerKeypadInput();
@@ -206,35 +203,20 @@ public class SampleDialogFrame extends JFrame {
         };
     }
 
-    /**
-     * イベントハンドラから親ウインドウのオブジェクトを取得
-     * 
-     * @param mouseEvent
-     * @return
-     */
+
 
     private Window getWindow(MouseEvent mouseEvent) {
         Component comp = (Component) mouseEvent.getComponent();
         return SwingUtilities.getWindowAncestor(comp);
     }
 
-    /**
-     * 垂直方向の空スペースを追加
-     * 
-     * @param height
-     * @return
-     */
+
     private Component setVerticalSpace(int height) {
         return Box.createRigidArea(new Dimension(0, height));
 
     }
 
-    /**
-     * 水平方向の空スペースを追加
-     * 
-     * @param width
-     * @return
-     */
+
     private Component setHorizonalSpace(int width) {
         return Box.createRigidArea(new Dimension(width, 0));
 
