@@ -1,0 +1,21 @@
+def showDialog():
+  port = "PORT_DIALOG"
+  conn = socket_open("127.0.0.1", portDialog, port)
+
+  if (conn):
+    socket_send_line("showDialog", port)
+
+    result = socket_read_line(port, 0)
+
+    if (result == "OK"):
+      qty = to_num(socket_read_line(port, 0))
+      return qty
+
+    else:
+      return 0
+    end
+
+  else:
+    return 0
+  end
+end
