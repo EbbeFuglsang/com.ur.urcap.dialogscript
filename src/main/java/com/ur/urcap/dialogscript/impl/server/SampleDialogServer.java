@@ -17,11 +17,9 @@ public class SampleDialogServer extends URInternalServer {
 
     }
 
-
     @Override
     public void onAccept(String recieveString, BufferedReader reader, PrintWriter writer) {
     }
-
 
     @Override
     public void onRecieveStream(String recieveString, BufferedReader reader, PrintWriter writer) {
@@ -29,23 +27,22 @@ public class SampleDialogServer extends URInternalServer {
 
         try {
 
-            // オーダーフォームの表示 → モーダル,
             String command = recieveString;
 
             if (command.indexOf("showDialog") != -1) {
 
-                SampleDialogFrame settingOrderFrame = new SampleDialogFrame(contribution);
+                SampleDialogFrame dialogFrame = new SampleDialogFrame(contribution);
 
-                int resultDialog = settingOrderFrame.showDialog();
+                int resultDialog = dialogFrame.showDialog();
 
                 if (resultDialog == SampleDialogFrame.ORDER_OK) {
                     writer.println("OK");
                     writer.flush();
                     System.out.println(MESSAGE_HEADER + "Send \"OK\"");
 
-                    writer.println(settingOrderFrame.inputQTY);
+                    writer.println(dialogFrame.inputQTY);
                     writer.flush();
-                    System.out.println(MESSAGE_HEADER + "Send \"" + String.valueOf(settingOrderFrame.inputQTY) + "\"");
+                    System.out.println(MESSAGE_HEADER + "Send \"" + String.valueOf(dialogFrame.inputQTY) + "\"");
 
                 }
 
@@ -55,7 +52,7 @@ public class SampleDialogServer extends URInternalServer {
                     System.out.println(MESSAGE_HEADER + "Send \"Cancel\"");
                 }
 
-                settingOrderFrame.dispose();
+                dialogFrame.dispose();
             } else {
                 System.out.println("Command is none");
 
